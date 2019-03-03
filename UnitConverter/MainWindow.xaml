@@ -5,8 +5,38 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UnitConverter"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Unit Conventer" Height="450" Width="800" ResizeMode="CanMinimize">
     <Grid>
-        
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.504,1.5" StartPoint="0.504,0.03">
+                <GradientStop Color="#a1bfec" Offset="0"/>
+                <GradientStop Color="#94b6f0" Offset="0.1"/>
+                <GradientStop Color="#89acf3" Offset="0.2"/>
+                <GradientStop Color="#81a1f5" Offset="0.5"/>
+                <GradientStop Color="#7b96f6" Offset="0.6"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+        <ComboBox Grid.Column="1" Grid.Row="0" Width="240" Height="25" Name="UnitTypeComboBox" SelectionChanged="UnitTypeComboBox_SelectionChanged" DropDownClosed="UnitTypeComboBox_DropDownClosed">
+            <ComboBoxItem>Mass</ComboBoxItem>
+            <ComboBoxItem>Temperature</ComboBoxItem>
+            <ComboBoxItem>Lenght</ComboBoxItem>
+        </ComboBox>
+        <ComboBox Grid.Column="0" Grid.Row="1" Width="240" Height="25" Name="Unit1ComboBox"/>
+        <ComboBox Grid.Column="2" Grid.Row="1" Width="240" Height="25" Name="Unit2ComboBox"/>
+        <TextBox Grid.Column="0" Grid.Row="2" Width="240" Margin="3" Height="25" Name="Unit1TextBox"/>
+        <TextBox Grid.Column="2" Grid.Row="2" Width="240" Margin="3" Height="25" Name="Unit2TextBox" IsReadOnly="True"/>
+        <Button Grid.Column="1" Grid.Row="2" Height="25" Width="100" Name="ConvertButton" Content="Convert" Click="ConvertButton_Click"/>
+        <Button Grid.Column="0" Grid.Row="3" Height="25" Width="100" Name="HelpButton" Content="Help" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="3"/>
     </Grid>
 </Window>
