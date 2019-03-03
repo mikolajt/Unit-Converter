@@ -31,25 +31,13 @@ namespace UnitConverter {
             Handle();
         }
 
-
-        private void UnitTypeComboBox_DropDownClosed(object sender, EventArgs e) {
-            if (handle) Handle();
-            handle = true;
-        }
-
         private void Handle() {
-            //Unit2ComboBox.Items.Clear();
-            //Unit1ComboBox.Items.Clear();
             ComboBoxLists cbl = new ComboBoxLists(UnitTypeComboBox.SelectedItem.ToString().Split(new string[] { ": " }, StringSplitOptions.None).Last());
             List<string> cblList = cbl.CreateList();
             Unit1ComboBox.ItemsSource = cblList;
             Unit2ComboBox.ItemsSource = cblList;
             Unit1ComboBox.SelectedIndex = 0;
             Unit2ComboBox.SelectedIndex = 1;
-            /*foreach(string s in cblList) {
-                Unit1ComboBox.Items.Add(s);
-                Unit2ComboBox.Items.Add(s);
-            }*/
         }
 
         private void ConvertButton_Click(object sender, RoutedEventArgs e) {
