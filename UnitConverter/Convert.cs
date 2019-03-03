@@ -20,83 +20,88 @@ namespace UnitConverter {
             double subresult = 0;
             double result = 0;
 
-            switch (Unit1ComboBoxValue) {
-                case "Tonne":
-                    subresult = UnitValue * 1000;
-                    break;
-
-                case "Kilogram":
-                    subresult = UnitValue;
-                    break;
-
-                case "Gram":
-                    subresult = UnitValue * 0.001;
-                    break;
-
-                case "Milligram":
-                    subresult = UnitValue * 0.000001;
-                    break;
-
-                case "Imperial Ton":
-                    subresult = UnitValue * 1016.05;
-                    break;
-
-                case "US Ton":
-                    subresult = UnitValue * 907.185;
-                    break;
-
-                case "Stone":
-                    subresult = UnitValue * 6.35029;
-                    break;
-
-                case "Pound":
-                    subresult = UnitValue * 0.453592;
-                    break;
-
-                case "Ounce":
-                    subresult = UnitValue * 0.0283495;
-                    break;
+            if (UnitValue < 0) {
+                throw new NegativeValueException("Mass cannot be negative");
             }
+            else {
+                switch (Unit1ComboBoxValue) {
+                    case "Tonne":
+                        subresult = UnitValue * 1000;
+                        break;
 
-            switch (Unit2ComboBoxValue) {
-                case "Tonne":
-                    result = subresult * 0.001;
-                    break;
+                    case "Kilogram":
+                        subresult = UnitValue;
+                        break;
 
-                case "Kilogram":
-                    result = subresult;
-                    break;
+                    case "Gram":
+                        subresult = UnitValue * 0.001;
+                        break;
 
-                case "Gram":
-                    result = subresult * 1000;
-                    break;
+                    case "Milligram":
+                        subresult = UnitValue * 0.000001;
+                        break;
 
-                case "Milligram":
-                    result = subresult * 1000000;
-                    break;
+                    case "Imperial Ton":
+                        subresult = UnitValue * 1016.05;
+                        break;
 
-                case "Imperial ton":
-                    result = subresult * 0.000984207;
-                    break;
+                    case "US Ton":
+                        subresult = UnitValue * 907.185;
+                        break;
 
-                case "US ton":
-                    result = subresult * 0.00110231;
-                    break;
+                    case "Stone":
+                        subresult = UnitValue * 6.35029;
+                        break;
 
-                case "Stone":
-                    result = subresult * 0.157473;
-                    break;
+                    case "Pound":
+                        subresult = UnitValue * 0.453592;
+                        break;
 
-                case "Pounde":
-                    result = subresult * 2.20462;
-                    break;
+                    case "Ounce":
+                        subresult = UnitValue * 0.0283495;
+                        break;
+                }
 
-                case "Ounce":
-                    result = subresult * 35.274;
-                    break;
+                switch (Unit2ComboBoxValue) {
+                    case "Tonne":
+                        result = subresult * 0.001;
+                        break;
+
+                    case "Kilogram":
+                        result = subresult;
+                        break;
+
+                    case "Gram":
+                        result = subresult * 1000;
+                        break;
+
+                    case "Milligram":
+                        result = subresult * 1000000;
+                        break;
+
+                    case "Imperial ton":
+                        result = subresult * 0.000984207;
+                        break;
+
+                    case "US ton":
+                        result = subresult * 0.00110231;
+                        break;
+
+                    case "Stone":
+                        result = subresult * 0.157473;
+                        break;
+
+                    case "Pounde":
+                        result = subresult * 2.20462;
+                        break;
+
+                    case "Ounce":
+                        result = subresult * 35.274;
+                        break;
+                }
+
+                return result;
             }
-
-            return result;
         }
 
         public double TemperatureConvert() {
@@ -109,12 +114,16 @@ namespace UnitConverter {
                     break;
 
                 case "Fahrenheit":
-                    subresult = ((UnitValue - 32) * (5 / 9));
+                    subresult = ((UnitValue - 32) * 0.556);
                     break;
 
                 case "Kelvin":
                     subresult = UnitValue - 273.15;
                     break;
+            }
+
+            if(subresult < -273.15) {
+                throw new NegativeValueException("This temperature is below absolute zero");
             }
 
             switch (Unit2ComboBoxValue) {
@@ -123,7 +132,7 @@ namespace UnitConverter {
                     break;
 
                 case "Fahrenheit":
-                    result = ((subresult * 9/5) + 32);
+                    result = ((subresult * 1.8) + 32);
                     break;
 
                 case "Kelvin":
@@ -135,88 +144,94 @@ namespace UnitConverter {
             return result;
         }
 
-        public double LenghtConvert() {
+        public double lengthConvert() {
             double subresult = 0;
             double result = 0;
 
-            switch (Unit1ComboBoxValue) {
-                case "Kilometre":
-                    subresult = UnitValue * 1000;
-                    break;
 
-                case "Metre":
-                    subresult = UnitValue;
-                    break;
-
-                case "Centimetre":
-                    subresult = UnitValue * 0.01;
-                    break;
-
-                case "Millimetre":
-                    subresult = UnitValue * 0.001;
-                    break;
-
-                case "Mile":
-                    subresult = UnitValue * 1609.34;
-                    break;
-
-                case "Yard":
-                    subresult = UnitValue * 0.9144;
-                    break;
-
-                case "Foot":
-                    subresult = UnitValue * 0.3048;
-                    break;
-
-                case "Inch":
-                    subresult = UnitValue * 0.0254;
-                    break;
-
-                case "Nautica Mile":
-                    subresult = UnitValue * 1852;
-                    break;
+            if (UnitValue < 0) {
+                throw new NegativeValueException("Length cannot be negative");
             }
+            else {
+                switch (Unit1ComboBoxValue) {
+                    case "Kilometre":
+                        subresult = UnitValue * 1000;
+                        break;
 
-            switch (Unit2ComboBoxValue) {
-                case "Kilometre":
-                    result = subresult * 0.001;
-                    break;
+                    case "Metre":
+                        subresult = UnitValue;
+                        break;
 
-                case "Metre":
-                    result = subresult;
-                    break;
+                    case "Centimetre":
+                        subresult = UnitValue * 0.01;
+                        break;
 
-                case "Centimetre":
-                    result = subresult * 100;
-                    break;
+                    case "Millimetre":
+                        subresult = UnitValue * 0.001;
+                        break;
 
-                case "Millimetre":
-                    result = subresult * 1000;
-                    break;
+                    case "Mile":
+                        subresult = UnitValue * 1609.34;
+                        break;
 
-                case "Mile":
-                    result = subresult * 0.000621371;
-                    break;
+                    case "Yard":
+                        subresult = UnitValue * 0.9144;
+                        break;
 
-                case "Yard":
-                    result = subresult * 1.09361;
-                    break;
+                    case "Foot":
+                        subresult = UnitValue * 0.3048;
+                        break;
 
-                case "Foot":
-                    result = subresult * 3.28084;
-                    break;
+                    case "Inch":
+                        subresult = UnitValue * 0.0254;
+                        break;
 
-                case "Inch":
-                    result = subresult * 39.3701;
-                    break;
+                    case "Nautica Mile":
+                        subresult = UnitValue * 1852;
+                        break;
+                }
 
-                case "Nautica Mile":
-                    result = subresult * 0.000539957;
-                    break;
+                switch (Unit2ComboBoxValue) {
+                    case "Kilometre":
+                        result = subresult * 0.001;
+                        break;
+
+                    case "Metre":
+                        result = subresult;
+                        break;
+
+                    case "Centimetre":
+                        result = subresult * 100;
+                        break;
+
+                    case "Millimetre":
+                        result = subresult * 1000;
+                        break;
+
+                    case "Mile":
+                        result = subresult * 0.000621371;
+                        break;
+
+                    case "Yard":
+                        result = subresult * 1.09361;
+                        break;
+
+                    case "Foot":
+                        result = subresult * 3.28084;
+                        break;
+
+                    case "Inch":
+                        result = subresult * 39.3701;
+                        break;
+
+                    case "Nautica Mile":
+                        result = subresult * 0.000539957;
+                        break;
+                }
+
+
+                return result;
             }
-
-
-            return result;
         }
     }
 }

@@ -44,6 +44,8 @@ namespace UnitConverter {
             List<string> cblList = cbl.CreateList();
             Unit1ComboBox.ItemsSource = cblList;
             Unit2ComboBox.ItemsSource = cblList;
+            Unit1ComboBox.SelectedIndex = 0;
+            Unit2ComboBox.SelectedIndex = 1;
             /*foreach(string s in cblList) {
                 Unit1ComboBox.Items.Add(s);
                 Unit2ComboBox.Items.Add(s);
@@ -52,28 +54,38 @@ namespace UnitConverter {
 
         private void ConvertButton_Click(object sender, RoutedEventArgs e) {
             Unit2TextBox.Text = "";
-            if (Unit2ComboBox.Text.Equals(Unit1ComboBox.Text)) {
-                Unit2TextBox.Text = Unit1TextBox.Text;
-            }
-            else {
-                Double.TryParse(Unit1TextBox.Text, out double unitValue);
-                Convert convert = new Convert(Unit1ComboBox.SelectedItem.ToString().Split(new string[] { ": " }, StringSplitOptions.None).Last(), Unit2ComboBox.SelectedItem.ToString().Split(new string[] { ": " }, StringSplitOptions.None).Last(), unitValue);
+            if (double.TryParse(Unit1TextBox.Text, out double lol)) {
+                try {
+                    if (Unit2ComboBox.Text.Equals(Unit1ComboBox.Text)) {
+                        Unit2TextBox.Text = Unit1TextBox.Text;
+                    }
+                    else {
+                        Double.TryParse(Unit1TextBox.Text, out double unitValue);
+                        Convert convert = new Convert(Unit1ComboBox.SelectedItem.ToString().Split(new string[] { ": " }, StringSplitOptions.None).Last(), Unit2ComboBox.SelectedItem.ToString().Split(new string[] { ": " }, StringSplitOptions.None).Last(), unitValue);
+                        switch (UnitTypeComboBox.SelectedItem.ToString().Split(new string[] { ": " }, StringSplitOptions.None).Last()) {
 
-                switch (UnitTypeComboBox.SelectedItem.ToString().Split(new string[] { ": " }, StringSplitOptions.None).Last()) {
+                            case "Mass":
+                                Unit2TextBox.Text = convert.MassConvert().ToString();
+                                break;
 
-                    case "Mass":
-                        Unit2TextBox.Text = convert.MassConvert().ToString();
-                        break;
+                            case "Temperature":
+                                Unit2TextBox.Text = convert.TemperatureConvert().ToString();
+                                break;
 
-                    case "Temperature":
-                        Unit2TextBox.Text = convert.TemperatureConvert().ToString();
-                        break;
-
-                    case "Lenght":
-                        Unit2TextBox.Text = convert.LenghtConvert().ToString();
-                        break;
+                            case "Length":
+                                Unit2TextBox.Text = convert.lengthConvert().ToString();
+                                break;
+                        }
+                    }
+                }
+                catch (NegativeValueException nve) {
+                    MessageBox.Show(nve.Message);
                 }
             }
+
+            else MessageBox.Show("Error: Wrong Input");
+
+
         }
     }
 }

@@ -24,9 +24,9 @@ namespace UnitConverter {
                     List<string> temperatureList = new List<string>() { "Celcius", "Fahrenheit", "Kelvin" };
                     return temperatureList;
 
-                case "Lenght":
-                    List<string> lenghtList = new List<string>() { "Kilometre", "Metre", "Centimetre", "Millimetre", "Mile", "Yard", "Foot", "Inch", "Nautica Mile" };
-                    return lenghtList;
+                case "Length":
+                    List<string> lengthList = new List<string>() { "Kilometre", "Metre", "Centimetre", "Millimetre", "Mile", "Yard", "Foot", "Inch", "Nautica Mile" };
+                    return lengthList;
             }
 
             return null;

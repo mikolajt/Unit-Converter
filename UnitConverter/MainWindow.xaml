@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UnitConverter"
         mc:Ignorable="d"
-        Title="Unit Conventer" Height="450" Width="800" ResizeMode="CanMinimize">
+        Title="Unit Converter" Height="450" Width="800" ResizeMode="CanMinimize">
     <Grid>
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.504,1.5" StartPoint="0.504,0.03">
@@ -20,23 +20,23 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
-        <ComboBox Grid.Column="1" Grid.Row="0" Width="240" Height="25" Name="UnitTypeComboBox" SelectionChanged="UnitTypeComboBox_SelectionChanged" DropDownClosed="UnitTypeComboBox_DropDownClosed">
+        <Label Grid.Column="1" Grid.Row="0" FontSize="30" Content="Unit Converter" HorizontalAlignment="Center" Margin="0, 20, 0, 0"/>
+        <ComboBox Grid.Column="1" Grid.Row="1" Width="240" Height="25" Name="UnitTypeComboBox" SelectionChanged="UnitTypeComboBox_SelectionChanged" DropDownClosed="UnitTypeComboBox_DropDownClosed">
             <ComboBoxItem>Mass</ComboBoxItem>
             <ComboBoxItem>Temperature</ComboBoxItem>
-            <ComboBoxItem>Lenght</ComboBoxItem>
+            <ComboBoxItem>Length</ComboBoxItem>
         </ComboBox>
-        <ComboBox Grid.Column="0" Grid.Row="1" Width="240" Height="25" Name="Unit1ComboBox"/>
-        <ComboBox Grid.Column="2" Grid.Row="1" Width="240" Height="25" Name="Unit2ComboBox"/>
-        <TextBox Grid.Column="0" Grid.Row="2" Width="240" Margin="3" Height="25" Name="Unit1TextBox"/>
-        <TextBox Grid.Column="2" Grid.Row="2" Width="240" Margin="3" Height="25" Name="Unit2TextBox" IsReadOnly="True"/>
-        <Button Grid.Column="1" Grid.Row="2" Height="25" Width="100" Name="ConvertButton" Content="Convert" Click="ConvertButton_Click"/>
-        <Button Grid.Column="0" Grid.Row="3" Height="25" Width="100" Name="HelpButton" Content="Help" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="3"/>
+        <ComboBox Grid.Column="0" Grid.Row="2" Width="240" Height="25" Name="Unit1ComboBox"/>
+        <ComboBox Grid.Column="2" Grid.Row="2" Width="240" Height="25" Name="Unit2ComboBox"/>
+        <TextBox Grid.Column="0" Grid.Row="3" Width="240" Margin="0, 3, 0, 150" Height="25" Name="Unit1TextBox"/>
+        <TextBox Grid.Column="2" Grid.Row="3" Width="240" Margin="0, 3, 0, 150" Height="25" Name="Unit2TextBox" IsReadOnly="True"/>
+        <Button Grid.Column="1" Grid.Row="3" Height="25" Width="100" Name="ConvertButton" Content="Convert" Click="ConvertButton_Click"/>
     </Grid>
 </Window>
