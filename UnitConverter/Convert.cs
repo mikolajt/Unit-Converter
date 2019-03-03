@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace UnitConverter {
+﻿namespace UnitConverter {
     class Convert {
         string Unit1ComboBoxValue { get; set; }
         string Unit2ComboBoxValue { get; set; }
@@ -224,7 +218,7 @@ namespace UnitConverter {
                         result = subresult * 39.3701;
                         break;
 
-                    case "Nautica Mile":
+                    case "Nautical Mile":
                         result = subresult * 0.000539957;
                         break;
                 }

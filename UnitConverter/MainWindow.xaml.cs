@@ -32,23 +32,43 @@ namespace UnitConverter {
         }
 
         private void Handle() {
-            ComboBoxLists cbl = new ComboBoxLists(UnitTypeComboBox.SelectedItem.ToString().Split(new string[] { ": " }, StringSplitOptions.None).Last());
-            List<string> cblList = cbl.CreateList();
-            Unit1ComboBox.ItemsSource = cblList;
-            Unit2ComboBox.ItemsSource = cblList;
-            Unit1ComboBox.SelectedIndex = 0;
-            Unit2ComboBox.SelectedIndex = 1;
+            string currentType = UnitTypeComboBox.SelectedItem.ToString().Split(new string[] { ": " }, StringSplitOptions.None).Last();
+            Unit1TextBox.Text = "";
+            Unit2TextBox.Text = "";
+
+            switch (currentType) {
+
+                case "Mass":
+                    Unit1ComboBox.ItemsSource = Enum.GetNames(typeof(MassEnum));
+                    Unit2ComboBox.ItemsSource = Enum.GetNames(typeof(MassEnum));
+                    Unit1ComboBox.SelectedIndex = 2;
+                    Unit2ComboBox.SelectedIndex = 1;
+                    break;
+
+                case "Temperature":
+                    Unit1ComboBox.ItemsSource = Enum.GetNames(typeof(TemperatureEnum));
+                    Unit2ComboBox.ItemsSource = Enum.GetNames(typeof(TemperatureEnum));
+                    Unit1ComboBox.SelectedIndex = 0;
+                    Unit2ComboBox.SelectedIndex = 1;
+                    break;
+
+                case "Length":
+                    Unit1ComboBox.ItemsSource = Enum.GetNames(typeof(LengthEnum));
+                    Unit2ComboBox.ItemsSource = Enum.GetNames(typeof(LengthEnum));
+                    Unit1ComboBox.SelectedIndex = 1;
+                    Unit2ComboBox.SelectedIndex = 2;
+                    break;
+            }
         }
 
         private void ConvertButton_Click(object sender, RoutedEventArgs e) {
             Unit2TextBox.Text = "";
-            if (double.TryParse(Unit1TextBox.Text, out double lol)) {
+            if (double.TryParse(Unit1TextBox.Text, out double unitValue)) {
                 try {
                     if (Unit2ComboBox.Text.Equals(Unit1ComboBox.Text)) {
                         Unit2TextBox.Text = Unit1TextBox.Text;
                     }
                     else {
-                        Double.TryParse(Unit1TextBox.Text, out double unitValue);
                         Convert convert = new Convert(Unit1ComboBox.SelectedItem.ToString().Split(new string[] { ": " }, StringSplitOptions.None).Last(), Unit2ComboBox.SelectedItem.ToString().Split(new string[] { ": " }, StringSplitOptions.None).Last(), unitValue);
                         switch (UnitTypeComboBox.SelectedItem.ToString().Split(new string[] { ": " }, StringSplitOptions.None).Last()) {
 
