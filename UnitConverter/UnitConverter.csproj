@@ -54,8 +54,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AreaEnum.cs" />
+    <Compile Include="EnumDescription.cs" />
     <Compile Include="LengthEnum.cs" />
+    <Compile Include="PressureEnum.cs" />
+    <Compile Include="SpeedEnum.cs" />
     <Compile Include="TemperatureEnum.cs" />
+    <Compile Include="TimeEnum.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

@@ -32,6 +32,10 @@
             <ComboBoxItem>Mass</ComboBoxItem>
             <ComboBoxItem>Temperature</ComboBoxItem>
             <ComboBoxItem>Length</ComboBoxItem>
+            <ComboBoxItem>Area</ComboBoxItem>
+            <ComboBoxItem>Pressure</ComboBoxItem>
+            <ComboBoxItem>Speed</ComboBoxItem>
+            <ComboBoxItem>Time</ComboBoxItem>
         </ComboBox>
         <ComboBox Grid.Column="0" Grid.Row="2" Width="240" Height="25" Name="Unit1ComboBox"/>
         <ComboBox Grid.Column="2" Grid.Row="2" Width="240" Height="25" Name="Unit2ComboBox"/>

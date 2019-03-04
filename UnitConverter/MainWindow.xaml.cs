@@ -1,17 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace UnitConverter {
     /// <summary>
@@ -35,28 +25,72 @@ namespace UnitConverter {
             string currentType = UnitTypeComboBox.SelectedItem.ToString().Split(new string[] { ": " }, StringSplitOptions.None).Last();
             Unit1TextBox.Text = "";
             Unit2TextBox.Text = "";
+            Unit1ComboBox.Items.Clear();
+            Unit2ComboBox.Items.Clear();
 
             switch (currentType) {
 
                 case "Mass":
-                    Unit1ComboBox.ItemsSource = Enum.GetNames(typeof(MassEnum));
-                    Unit2ComboBox.ItemsSource = Enum.GetNames(typeof(MassEnum));
+                    for(int i=0; i<Enum.GetNames(typeof(MassEnum)).Length; i++) {
+                        Unit1ComboBox.Items.Add(EnumDescription.GetEnumDescription((MassEnum)i));
+                        Unit2ComboBox.Items.Add(EnumDescription.GetEnumDescription((MassEnum)i));
+                    }
                     Unit1ComboBox.SelectedIndex = 2;
                     Unit2ComboBox.SelectedIndex = 1;
                     break;
 
                 case "Temperature":
-                    Unit1ComboBox.ItemsSource = Enum.GetNames(typeof(TemperatureEnum));
-                    Unit2ComboBox.ItemsSource = Enum.GetNames(typeof(TemperatureEnum));
+                    for (int i = 0; i < Enum.GetNames(typeof(TemperatureEnum)).Length; i++) {
+                        Unit1ComboBox.Items.Add(EnumDescription.GetEnumDescription((TemperatureEnum)i));
+                        Unit2ComboBox.Items.Add(EnumDescription.GetEnumDescription((TemperatureEnum)i));
+                    }
                     Unit1ComboBox.SelectedIndex = 0;
                     Unit2ComboBox.SelectedIndex = 1;
                     break;
 
                 case "Length":
-                    Unit1ComboBox.ItemsSource = Enum.GetNames(typeof(LengthEnum));
-                    Unit2ComboBox.ItemsSource = Enum.GetNames(typeof(LengthEnum));
+                    for (int i = 0; i < Enum.GetNames(typeof(LengthEnum)).Length; i++) {
+                        Unit1ComboBox.Items.Add(EnumDescription.GetEnumDescription((LengthEnum)i));
+                        Unit2ComboBox.Items.Add(EnumDescription.GetEnumDescription((LengthEnum)i));
+                    }
                     Unit1ComboBox.SelectedIndex = 1;
                     Unit2ComboBox.SelectedIndex = 2;
+                    break;
+
+                case "Area":
+                    for (int i = 0; i < Enum.GetNames(typeof(AreaEnum)).Length; i++) {
+                        Unit1ComboBox.Items.Add(EnumDescription.GetEnumDescription((AreaEnum)i));
+                        Unit2ComboBox.Items.Add(EnumDescription.GetEnumDescription((AreaEnum)i));
+                    }
+                    Unit1ComboBox.SelectedIndex = 1;
+                    Unit2ComboBox.SelectedIndex = 0;
+                    break;
+
+                case "Pressure":
+                    for (int i = 0; i < Enum.GetNames(typeof(PressureEnum)).Length; i++) {
+                        Unit1ComboBox.Items.Add(EnumDescription.GetEnumDescription((PressureEnum)i));
+                        Unit2ComboBox.Items.Add(EnumDescription.GetEnumDescription((PressureEnum)i));
+                    }
+                    Unit1ComboBox.SelectedIndex = 0;
+                    Unit2ComboBox.SelectedIndex = 2;
+                    break;
+
+                case "Speed":
+                    for (int i = 0; i < Enum.GetNames(typeof(SpeedEnum)).Length; i++) {
+                        Unit1ComboBox.Items.Add(EnumDescription.GetEnumDescription((SpeedEnum)i));
+                        Unit2ComboBox.Items.Add(EnumDescription.GetEnumDescription((SpeedEnum)i));
+                    }
+                    Unit1ComboBox.SelectedIndex = 0;
+                    Unit2ComboBox.SelectedIndex = 1;
+                    break;
+
+                case "Time":
+                    for (int i = 0; i < Enum.GetNames(typeof(TimeEnum)).Length; i++) {
+                        Unit1ComboBox.Items.Add(EnumDescription.GetEnumDescription((TimeEnum)i));
+                        Unit2ComboBox.Items.Add(EnumDescription.GetEnumDescription((TimeEnum)i));
+                    }
+                    Unit1ComboBox.SelectedIndex = 2;
+                    Unit2ComboBox.SelectedIndex = 1;
                     break;
             }
         }
@@ -82,6 +116,22 @@ namespace UnitConverter {
 
                             case "Length":
                                 Unit2TextBox.Text = convert.lengthConvert().ToString();
+                                break;
+
+                            case "Area":
+                                Unit2TextBox.Text = convert.areaConvert().ToString();
+                                break;
+
+                            case "Pressure":
+                                Unit2TextBox.Text = convert.pressureConvert().ToString();
+                                break;
+
+                            case "Speed":
+                                Unit2TextBox.Text = convert.speedConvert().ToString();
+                                break;
+
+                            case "Time":
+                                Unit2TextBox.Text = convert.timeConvert().ToString();
                                 break;
                         }
                     }

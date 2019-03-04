@@ -7,9 +7,9 @@ namespace UnitConverter {
         Gram, 
         Milligram,
         [Description("Imperial Ton")]
-        Imperialton,
+        Imperial_Ton,
         [Description("US Ton")]
-        USton,
+        US_Ton,
         Stone, 
         Pounde, 
         Ounce

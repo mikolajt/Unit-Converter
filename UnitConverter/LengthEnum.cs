@@ -11,6 +11,6 @@ namespace UnitConverter {
         Foot, 
         Inch,
         [Description("Nautical Mile")]
-        NauticalMile
+        Nautical_Mile
     }
 }
