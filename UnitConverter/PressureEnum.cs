@@ -5,7 +5,7 @@ namespace UnitConverter {
         Atmosphere,
         Bar,
         Pascal,
-        [Description("Pound-force per square inch")]
+        [Description("Pound force per square inch")]
         Pound_force_per_square_inch,
         Torr
     }

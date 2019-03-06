@@ -32,8 +32,9 @@ namespace UnitConverter {
 
                 case "Mass":
                     for(int i=0; i<Enum.GetNames(typeof(MassEnum)).Length; i++) {
-                        Unit1ComboBox.Items.Add(EnumDescription.GetEnumDescription((MassEnum)i));
-                        Unit2ComboBox.Items.Add(EnumDescription.GetEnumDescription((MassEnum)i));
+                        string positionName = EnumDescription.GetEnumDescription((MassEnum)i);
+                        Unit1ComboBox.Items.Add(positionName);
+                        Unit2ComboBox.Items.Add(positionName);
                     }
                     Unit1ComboBox.SelectedIndex = 2;
                     Unit2ComboBox.SelectedIndex = 1;
@@ -41,8 +42,9 @@ namespace UnitConverter {
 
                 case "Temperature":
                     for (int i = 0; i < Enum.GetNames(typeof(TemperatureEnum)).Length; i++) {
-                        Unit1ComboBox.Items.Add(EnumDescription.GetEnumDescription((TemperatureEnum)i));
-                        Unit2ComboBox.Items.Add(EnumDescription.GetEnumDescription((TemperatureEnum)i));
+                        string positionName = EnumDescription.GetEnumDescription((TemperatureEnum)i);
+                        Unit1ComboBox.Items.Add(positionName);
+                        Unit2ComboBox.Items.Add(positionName);
                     }
                     Unit1ComboBox.SelectedIndex = 0;
                     Unit2ComboBox.SelectedIndex = 1;
@@ -50,8 +52,9 @@ namespace UnitConverter {
 
                 case "Length":
                     for (int i = 0; i < Enum.GetNames(typeof(LengthEnum)).Length; i++) {
-                        Unit1ComboBox.Items.Add(EnumDescription.GetEnumDescription((LengthEnum)i));
-                        Unit2ComboBox.Items.Add(EnumDescription.GetEnumDescription((LengthEnum)i));
+                        string positionName = EnumDescription.GetEnumDescription((LengthEnum)i);
+                        Unit1ComboBox.Items.Add(positionName);
+                        Unit2ComboBox.Items.Add(positionName);
                     }
                     Unit1ComboBox.SelectedIndex = 1;
                     Unit2ComboBox.SelectedIndex = 2;
@@ -59,8 +62,9 @@ namespace UnitConverter {
 
                 case "Area":
                     for (int i = 0; i < Enum.GetNames(typeof(AreaEnum)).Length; i++) {
-                        Unit1ComboBox.Items.Add(EnumDescription.GetEnumDescription((AreaEnum)i));
-                        Unit2ComboBox.Items.Add(EnumDescription.GetEnumDescription((AreaEnum)i));
+                        string positionName = EnumDescription.GetEnumDescription((AreaEnum)i);
+                        Unit1ComboBox.Items.Add(positionName);
+                        Unit2ComboBox.Items.Add(positionName);
                     }
                     Unit1ComboBox.SelectedIndex = 1;
                     Unit2ComboBox.SelectedIndex = 0;
@@ -68,8 +72,9 @@ namespace UnitConverter {
 
                 case "Pressure":
                     for (int i = 0; i < Enum.GetNames(typeof(PressureEnum)).Length; i++) {
-                        Unit1ComboBox.Items.Add(EnumDescription.GetEnumDescription((PressureEnum)i));
-                        Unit2ComboBox.Items.Add(EnumDescription.GetEnumDescription((PressureEnum)i));
+                        string positionName = EnumDescription.GetEnumDescription((PressureEnum)i);
+                        Unit1ComboBox.Items.Add(positionName);
+                        Unit2ComboBox.Items.Add(positionName);
                     }
                     Unit1ComboBox.SelectedIndex = 0;
                     Unit2ComboBox.SelectedIndex = 2;
@@ -77,8 +82,9 @@ namespace UnitConverter {
 
                 case "Speed":
                     for (int i = 0; i < Enum.GetNames(typeof(SpeedEnum)).Length; i++) {
-                        Unit1ComboBox.Items.Add(EnumDescription.GetEnumDescription((SpeedEnum)i));
-                        Unit2ComboBox.Items.Add(EnumDescription.GetEnumDescription((SpeedEnum)i));
+                        string positionName = EnumDescription.GetEnumDescription((SpeedEnum)i);
+                        Unit1ComboBox.Items.Add(positionName);
+                        Unit2ComboBox.Items.Add(positionName);
                     }
                     Unit1ComboBox.SelectedIndex = 0;
                     Unit2ComboBox.SelectedIndex = 1;
@@ -86,8 +92,9 @@ namespace UnitConverter {
 
                 case "Time":
                     for (int i = 0; i < Enum.GetNames(typeof(TimeEnum)).Length; i++) {
-                        Unit1ComboBox.Items.Add(EnumDescription.GetEnumDescription((TimeEnum)i));
-                        Unit2ComboBox.Items.Add(EnumDescription.GetEnumDescription((TimeEnum)i));
+                        string positionName = EnumDescription.GetEnumDescription((TimeEnum)i);
+                        Unit1ComboBox.Items.Add(positionName);
+                        Unit2ComboBox.Items.Add(positionName);
                     }
                     Unit1ComboBox.SelectedIndex = 2;
                     Unit2ComboBox.SelectedIndex = 1;
